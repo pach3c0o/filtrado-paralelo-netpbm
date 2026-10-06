@@ -1,0 +1,18 @@
+# Ejecutables y salidas
+/processor
+/filterer
+/th_filterer
+/omp_filterer
+/mpi_filterer
+images/out/
+*.o
+
+# Documentos de entrega (se entregan aparte)
+INFORME.pdf
+INFORME.docx
+GUION_VIDEO.docx
+
+# Sistema y editor
+.DS_Store
+.vscode/
+__pycache__/

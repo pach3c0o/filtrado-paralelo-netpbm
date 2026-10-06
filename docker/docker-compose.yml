@@ -1,0 +1,14 @@
+# Tres nodos en la misma red. Solo node1 (rank 0) lee y escribe imágenes.
+# La imagen se construye una vez (node1) y los demás nodos la reutilizan.
+x-node: &node
+  image: netpbm-mpi
+  cpus: 2   # cada contenedor simula una máquina con 2 núcleos
+
+services:
+  node1:
+    <<: *node
+    build: { context: .., dockerfile: docker/Dockerfile }
+    hostname: node1
+    volumes: [ "../images:/home/mpi/app/images" ]
+  node2: { <<: *node, hostname: node2 }
+  node3: { <<: *node, hostname: node3 }
